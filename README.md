@@ -19,4 +19,4 @@
 ###Лицензия
 Бесплатное распространение.<b>Продажа запрещена</b>
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](http://cs631820.vk.me/v631820482/1595f/xuPJfJh5Q1U.jpg "Logo Title Text 1")
