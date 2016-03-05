@@ -19,5 +19,7 @@
 
 ###Лицензия
 Бесплатное распространение.<b>Продажа запрещена</b>
+
 ###Скриншоты
-![alt text](http://cs631820.vk.me/v631820482/1595f/xuPJfJh5Q1U.jpg "Logo Title Text 1")
+
+![alt text](http://cs631820.vk.me/v631820482/1595f/xuPJfJh5Q1U.jpg "ScreenShot")
