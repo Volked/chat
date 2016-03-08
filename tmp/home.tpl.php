@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Чат</title>
-    <script type="text/javascript" src="<?= URL_ROOT; ?>/tmp/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="<?= URL_ROOT; ?>/tmp/js/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript" src="<?= URL_ROOT; ?>/tmp/js/chat.js"></script>
-    <link rel="stylesheet" type="text/css" href="<?= URL_ROOT; ?>/tmp/js/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="<?= URL_ROOT; ?>/tmp/css/style.css"/>
-
+    <script type="text/javascript" src="tmp/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/tmp/js/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/tmp/js/chat.js"></script>
+    <link rel="stylesheet" type="text/css" href="/tmp/js/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/tmp/css/style.css"/>
 </head>
 <body>
 <?php if (isset($_SESSION['user']['login']) && !empty($_SESSION['user']['login'])): ?>
@@ -29,7 +29,7 @@
         <a href="#modal" role="button" class="btn" data-toggle="modal">
             Выбрать цвет ваших сообщений
         </a>
-
+        <!--modal-->
         <div id="modal" class="modal hide fade">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
@@ -46,7 +46,7 @@
                 </p>
             </div>
         </div>
-
+        <!--end_modal-->
     </div>
 <?php else: ?>
     <?php include_once 'login.tpl.php'; ?>
