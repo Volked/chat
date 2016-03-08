@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Чат</title>
+    <title>Чат php</title>
     <script type="text/javascript" src="tmp/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/tmp/js/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/tmp/js/chat.js"></script>
