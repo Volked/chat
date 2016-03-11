@@ -1,4 +1,5 @@
 <?php
+
 require_once 'inc/config.php';
 $chat = chat::_self($db);
 if (isset($_GET['logout'])) {
