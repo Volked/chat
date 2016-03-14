@@ -5,11 +5,11 @@ if (isset($_POST['submit']))
 {
     if (empty($_POST['login'])) 
     {
-        $info_reg = 'Р’С‹ РЅРµ РІРІРµР»Рё Р›РѕРіРёРЅ';
+        $info_reg = 'Вы не ввели Логин';
     }                 
     elseif (empty($_POST['password'])) 
     {
-        $info_reg = 'Р’С‹ РЅРµ РІРІРµР»Рё РїР°СЂРѕР»СЊ';
+        $info_reg = 'Вы не ввели пароль';
     }                      
    else 
     {
@@ -18,13 +18,13 @@ if (isset($_POST['submit']))
         $password = md5($_POST['password']);
 		$ip = 'localhost';
   
-	$query = "SELECT `login`
+	$query = "SELECT `id`
       FROM `login`
-      WHERE `login`='{$login}' AND `password`='{$password}'
+      WHERE `login`='{$login}'
       ";
       $sql = mysqli_query($db, $query) or die(mysql_error());
 	  if (mysqli_num_rows($sql) > 0){
-		  echo 'РђРєРєР°СѓРЅС‚:'. $_POST['login'] ."\nСѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!РСЃРїРѕР»СЊР·СѓР№С‚Рµ РґСЂСѓРіРѕРµ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ";
+		  echo 'Аккаунт:'. $_POST['login'] ."\nуже существует!Используйте другое имя пользователя";
 	  }
 	  else
 	  {
@@ -32,7 +32,7 @@ if (isset($_POST['submit']))
         VALUES ('$login', '$color', '$password')";
         $result = mysqli_query($db, $query) or die(mysql_error());
                     
-        $info_reg = 'Р’С‹ СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ!';
+        $info_reg = 'Вы успешно зарегистрировались!';
 	  }
 }
 }
