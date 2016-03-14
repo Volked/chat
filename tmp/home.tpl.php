@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Р§Р°С‚</title>
+    <title>Чат</title>
     <script type="text/javascript" src="tmp/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/tmp/js/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="/tmp/js/chat.js"></script>
@@ -11,23 +11,23 @@
 </head>
 <body>
 <?php if (isset($_SESSION['user']['login']) && !empty($_SESSION['user']['login'])): ?>
-    <a href="?logout=true">Р’С‹С…РѕРґ</a>
+    <a href="?logout=true">Выход</a>
     <div class="result"></div>
     <div class="chat_area">
         <div align="center">
-            <div class="result_message">Р’ С‡Р°С‚Рµ РЅРµС‚ СЃРѕРѕР±С‰РµРЅРёР№</div>
+            <div class="result_message">В чате нет сообщений</div>
         </div>
         <br>
         <hr>
         <br>
 
-        <h1>Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РЅР°С€ С‡Р°С‚!</h1>
+        <h1>Добро пожаловать в наш чат!</h1>
         <br>
         <textarea autofocus class="message"></textarea>
         <br>
-        <button class="btn btn-primary green" id="button">РќР°РїРёСЃР°С‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ</button>
+        <button class="btn btn-primary green" id="button">Написать сообщение</button>
         <a href="#modal" role="button" class="btn" data-toggle="modal">
-            Р’С‹Р±СЂР°С‚СЊ С†РІРµС‚ РІР°С€РёС… СЃРѕРѕР±С‰РµРЅРёР№
+            Выбрать цвет ваших сообщений
         </a>
         <!--modal-->
         <div id="modal" class="modal hide fade">
@@ -35,14 +35,14 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 <br>
 
-                <h2>Р’РІРµРґРёС‚Рµ С†РІРµС‚РѕРІРѕР№-РєРѕРґ РІР°С€РёС… СЃРѕРѕР±С‰РµРЅРёР№</h2>
+                <h2>Введите цветовой-код ваших сообщений</h2>
             </div>
             <div class="modal-body">
                 <p>
                     <input autofocus id="colorpickerField" type="text" class="color" value="<?= $this->color; ?>"/>
                     <input type="hidden" class="id" value="<?= $_SESSION['user']['id']; ?>">
                     <br>
-                    <button class="btn btn-primary" id="color">Р“РѕС‚РѕРІРѕ</button>
+                    <button class="btn btn-primary" id="color">Готово</button>
                 </p>
             </div>
         </div>
