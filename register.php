@@ -5,11 +5,11 @@ if (isset($_POST['submit']))
 {
     if (empty($_POST['login'])) 
     {
-        $info_reg = 'Вы не ввели Логин';
+        $info_reg = 'Р’С‹ РЅРµ РІРІРµР»Рё Р›РѕРіРёРЅ';
     }                 
     elseif (empty($_POST['password'])) 
     {
-        $info_reg = 'Вы не ввели пароль';
+        $info_reg = 'Р’С‹ РЅРµ РІРІРµР»Рё РїР°СЂРѕР»СЊ';
     }                      
    else 
     {
@@ -21,7 +21,7 @@ if (isset($_POST['submit']))
         VALUES ('$login', '$color', '$password')";
         $result = mysqli_query($db, $query) or die(mysql_error());
                     
-        $info_reg = 'Вы успешно зарегистрировались!';
+        $info_reg = 'Р’С‹ СѓСЃРїРµС€РЅРѕ Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°Р»РёСЃСЊ!';
     }
 }
 
