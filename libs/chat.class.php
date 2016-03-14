@@ -24,7 +24,7 @@ class chat
     {
         $login = strip_tags(trim($login));
         $login = $this->_db->real_escape_string($login);
-        $password = hash("sha256", $password);
+        $password = hash("md5", $password);
 
         $query = $this->_db->query("SELECT `id`, `login`, `password` FROM  `login` WHERE `login` = '$login'");
         $result = $query->fetch_object();
