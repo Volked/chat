@@ -21,11 +21,11 @@
     <table>
         <tr>
             <td>Введите логин:</td>
-            <td><input type="text" size="20" name="login" /></td>
+            <td><input type="text" size="20" minlength="4" name="login" /></td>
         </tr>
         <tr>
             <td>Введите пароль:</td>
-            <td><input type="password" size="20" maxlength="20" name="password" /></td>
+            <td><input type="password" size="20" minlength="4" name="password" /></td>
         </tr>
         <tr>
 		 <tr>
