@@ -11,11 +11,11 @@ if (isset($_POST['submit']))
 {
     if (empty($_POST['login'])) 
     {
-        $info_reg = 'Вы не ввели Логин';
+        $info_reg = "<div class='alert alert-error'>Вы не ввели Логин!</div>";
     }                 
     elseif (empty($_POST['password'])) 
     {
-        $info_reg = 'Вы не ввели пароль';
+        $info_reg = "<div class='alert alert-error'>Вы не ввели пароль/Слишком короткий пароль.Минимальное значение 4!</div>";
     }                      
    else 
     {
