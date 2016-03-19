@@ -1,4 +1,10 @@
+<script type="text/javascript" src="tmp/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/tmp/js/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/tmp/js/chat.js"></script>
+<link rel="stylesheet" type="text/css" href="/tmp/js/bootstrap/css/bootstrap.css"/>
+<link rel="stylesheet" type="text/css" href="/tmp/css/style.css"/>
 <?php
+
 require_once 'inc/database.php';
 
 if (isset($_POST['submit'])) 
@@ -26,14 +32,16 @@ if (isset($_POST['submit']))
       $sql = mysqli_query($db, $query) or die(mysql_error());
 	  if (mysqli_num_rows($sql) > 0){
 		  echo 'Аккаунт:'. $_POST['login'] ."\nуже существует!Используйте другое имя пользователя";
+		  echo '<br><a href="/">Главная</a>';
 	  }
 	  else
 	  {
 		  $query = "INSERT INTO `login` (login, password)
         VALUES ('$login', '$password')";
         $result = mysqli_query($db, $query) or die(mysql_error());
-                    
-        $info_reg = 'Вы успешно зарегистрировались!';
+       
+		 $info_reg = "<div class='alert alert-success'>Вы успешно зарегистрировались!</div>";
+		
 	  }
 }
 }
