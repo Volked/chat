@@ -1,6 +1,8 @@
 <?php
 
 require_once 'inc/config.php';
+error_log("Ошыбка!", 3, "my-errors.log");
+
 $chat = chat::_self($db);
 if (isset($_GET['logout'])) {
     $chat->Logout();
