@@ -26,13 +26,14 @@ class chat
         $login = $this->_db->real_escape_string($login);
         $password = hash("md5", $password);
 
-        $query = $this->_db->query("SELECT `id`, `login`, `password` FROM  `login` WHERE `login` = '$login'");
+        $query = $this->_db->query("SELECT `id`, `login`, `password`, `color` FROM  `login` WHERE `login` = '$login'");
         $result = $query->fetch_object();
 
         if (trim($result->login) === $login && trim($result->password) === trim($password)) {
             $_SESSION['user']['login'] = $result->login;
+			$_SESSION['user']['color'] = $result->color;
             $_SESSION['user']['id'] = $result->id;
-            $_SESSION['user']['ip'] = getenv("REMOTE_ADDR");
+            $_SESSION['user']['ip'] = getenv("REMOTE_ADDR");			
 
             return true;
         }
@@ -53,8 +54,9 @@ class chat
     public function collor($collor, $id)
     {
         $color = $this->_db->real_escape_string($collor);
-        $query = $this->_db->query("UPDATE `login` SET `color` = '$collor' WHERE `id` = $id");
-        if (!$query) throw new Exception("Не удалось выполнить запрос:" . $this->_db->error . " " . __LINE__);
+       //$query = $this->_db->query("UPDATE `login` SET `color` = '$collor' WHERE `id` = $id");
+       //if (!$query) throw new Exception("Не удалось выполнить запрос:" . $this->_db->error . " " . __LINE__);
+		$_SESSION['user']['color']=$collor;
 
         return true;
     }
@@ -85,6 +87,7 @@ class chat
         $result = $query->fetch_assoc();
 
         return $result['color'];
+		
     }
 
     //Добовляем сообщение
@@ -93,8 +96,8 @@ class chat
         $time = time();
         $uid = !empty($_SESSION['user']['id']) ? $_SESSION['user']['id']
             : self::IdToLogin($this->_db, $_SESSION['user']['login']);
-        $query = $this->_db->prepare("INSERT INTO `message` (`time`,`message`,`uid`) VALUES(?,?,?)");
-        $query->bind_param('isi', $time, $message, $uid);
+        $query = $this->_db->prepare("INSERT INTO `message` (`time`,`message`,`uid`,`color`) VALUES(?,?,?,?)");
+        $query->bind_param('isis', $time, $message, $uid, $_SESSION['user']['color']);
 
         return $query->execute();
     }
@@ -103,10 +106,10 @@ class chat
 
     public function ShowMessage()
     {
-        $query = $this->_db->query("SELECT `id`,`time`,`message`,`uid` FROM `message` ORDER BY `id` DESC");
+        $query = $this->_db->query("SELECT `id`,`time`,`message`,`uid`, `color` FROM `message` ORDER BY `id` DESC");
         while ($result = $query->fetch_assoc()) {
             $login = self::LoginToId($this->_db, (int)$result['uid']);
-            $color = $this->ShowCollor($result['uid']);
+            $color = $_SESSION['user']['color'];
             $Uid[] = $result['uid'];
             $Id[] = $result['id'];
             $Login[] = $login;
